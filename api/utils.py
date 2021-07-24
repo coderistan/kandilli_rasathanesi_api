@@ -49,6 +49,7 @@ def get_veriler():
 		for i in parser.pre.text.split("\r\n"):
 			if i and (i[0] in string.digits):
 				x = parse(i)
+				print(x)
 				veriler.append(Deprem(x))
 	
 	return veriler
