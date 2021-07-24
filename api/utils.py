@@ -24,6 +24,10 @@ def parse(text):
     veri = re.split(" {2,}",text)
     if(len(veri) > 9):
         veri = [*veri[:8]," ".join(veri[8:])]
+    elif len(veri) == 8:
+    	veri.append(veri[7][50:])
+    	veri[7] = veri[7][:50]
+
     return veri
 
 def get_source():
@@ -45,6 +49,7 @@ def get_veriler():
 		for i in parser.pre.text.split("\r\n"):
 			if i and (i[0] in string.digits):
 				x = parse(i)
+				print(x)
 				veriler.append(Deprem(x))
 	
 	return veriler
